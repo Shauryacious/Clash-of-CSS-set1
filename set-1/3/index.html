@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS, and JS - Infinity Loader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mynerve&display=swap" rel="stylesheet">
+    <style>
+        /*
+        * Infinity Loader styles
+        */
+        .infitiny-loader {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle {
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 0 -9px;
+        }
+
+        .circle:before,
+        .circle:after {
+            content: "";
+            position: absolute;
+            border: 18px solid transparent;
+            border-radius: 100px;
+            top: -6px;
+            left: -6px;
+        }
+
+        .circle:before {
+            border-color: #fff;
+            border-top-color: transparent;
+            transform: rotate(45deg);
+        }
+
+        .circle:after {
+            border-color: #2d84ee;
+            border-top-color: transparent;
+            transform: rotate(-135deg);
+        }
+
+        /*
+        * Animation
+        */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .circle span {
+            content: "";
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            border: 18px solid transparent;
+            border-radius: 100px;
+            top: -18px;
+            left: -18px;
+            transform: rotate(135deg);
+            z-index: 99;
+            border-top-color: #fff;
+            animation: spin 6s cubic-bezier(0, 0, 0, 0) infinite;
+            animation-delay: 0s;
+        }
+
+        .circle span:nth-child(2) {
+            transform: rotate(135deg);
+            border-color: #fff;
+            border-top-color: transparent;
+            animation: spin 6s cubic-bezier(0, 0, 0, 0) infinite .75s;
+        }
+
+        .circle:nth-child(2) span:nth-child(1) {
+            animation: spin 6s cubic-bezier(0, 0, 0, 0) infinite 3s;
+            transform: rotate(315deg);
+        }
+
+        .circle:nth-child(2) span:nth-child(2) {
+            animation: spin 6s cubic-bezier(0, 0, 0, 0) infinite 3.75s;
+            transform: rotate(315deg);
+            border-color: #fff;
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body style="background-color: red;">
+    <section>
+        <h1 class="text-center"><b>Creating an Infinity Loader using HTML and CSS</b></h1>
+        <hr width="50px">
+        <!-- Infinity Loader Container -->
+        <div class="infitiny-loader">
+            <div class="circle">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="circle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- End of Infinity Loader Container -->
+    </section>
+</body>
+</html>
